@@ -1,7 +1,7 @@
 # anton-iv_infra
 anton-iv Infra repository
 
-Решение два-в-одном. Создаем файл ~/.ssh/config следующего содержания:
+Task 1 solution: need to create .ssh/config with folowing contents:
 
 Host bastion
   User gceuser
@@ -13,7 +13,7 @@ Host someinternalhost
   Port 22
   ProxyCommand ssh bastion nc -w 120 %h %p
 
-Теперь можно пользоваться короткими командами ssh bastion и ssh someinternalhost.
+Now we can use ssh bastion and ssh someinternalhost.
 
 bastion_IP = 35.206.158.95
 someinternalhost_IP = 10.132.0.3
