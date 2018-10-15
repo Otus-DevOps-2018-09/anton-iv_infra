@@ -14,3 +14,6 @@ Host someinternalhost
   ProxyCommand ssh bastion nc -w 120 %h %p
 
 “еперь можно пользоватьс€ короткими командами ssh bastion и ssh someinternalhost.
+
+bastion_IP = 35.206.158.95
+someinternalhost_IP = 10.132.0.3
