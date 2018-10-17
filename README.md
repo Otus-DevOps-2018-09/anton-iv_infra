@@ -18,5 +18,5 @@ Now we can use ssh bastion and ssh someinternalhost.
 bastion_IP = 35.206.158.95
 someinternalhost_IP = 10.132.0.3
 
-testapp_IP = http://35.241.166.155
+testapp_IP = 35.241.166.155
 testapp_port = 9292
