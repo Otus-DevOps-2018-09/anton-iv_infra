@@ -1,6 +1,6 @@
 #!/bin/bash
 
-cd /home/gceuser
+#cd /home/gceuser
 
 git clone -b monolith https://github.com/express42/reddit.git
 
