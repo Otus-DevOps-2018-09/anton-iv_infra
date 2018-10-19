@@ -30,7 +30,7 @@
         {
             "type": "shell",
             "script": "scripts/deploy.sh",
-            "execute_command": "{{.Path}}"
+            "execute_command": "sudo {{.Path}}"
         }
     ]
 }

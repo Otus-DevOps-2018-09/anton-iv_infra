@@ -3,9 +3,8 @@ Description=Puma App service
 After=network.target
 
 [Service]
-ExecStart=/usr/local/bin/puma -d
+ExecStart=/usr/local/bin/puma -d --dir /home/gceuser/reddit/
 Type=forking
-PIDFile=/var/run/puma.pid
 
 [Install]
 WantedBy=default.target
