@@ -23,6 +23,11 @@
     ],
     "provisioners": [
         {
+            "type": "file",
+            "source": "files/puma.service",
+            "destination": "/etc/systemd/system/puma.service"
+        },
+        {
             "type": "shell",
             "script": "scripts/deploy.sh",
             "execute_command": "{{.Path}}"

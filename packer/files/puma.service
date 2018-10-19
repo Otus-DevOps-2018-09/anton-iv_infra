@@ -1,0 +1,11 @@
+[Unit]
+Description=Puma App service
+After=network.target
+
+[Service]
+ExecStart=/usr/local/bin/puma -d
+Type=forking
+PIDFile=/var/run/puma.pid
+
+[Install]
+WantedBy=default.target
