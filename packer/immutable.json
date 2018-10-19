@@ -25,12 +25,12 @@
         {
             "type": "file",
             "source": "files/puma.service",
-            "destination": "/etc/systemd/system/puma.service"
+            "destination": "/home/gceuser/puma.service"
         },
         {
             "type": "shell",
             "script": "scripts/deploy.sh",
-            "execute_command": "sudo {{.Path}}"
+            "execute_command": "{{.Path}}"
         }
     ]
 }
