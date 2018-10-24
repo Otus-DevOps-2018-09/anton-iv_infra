@@ -1,10 +1,7 @@
 provider "google" {
   version = "1.4.0"
 
-  #project = "infra-219514"
-  #region = "europe-west1"
   project = "${var.project}"
-
   region = "${var.region}"
 }
 
@@ -23,9 +20,9 @@ resource "google_compute_instance" "app" {
   name         = "reddit-app"
   machine_type = "f1-micro"
   zone         = "${var.zone}"
+  count        = "${var.instance_count}"
 
   metadata {
-    #ssh-keys = "gceuser:${file("~/.ssh/gceuser.pub")}"   
     ssh-keys = "gceuser:${file(var.public_key_path)}"
   }
 

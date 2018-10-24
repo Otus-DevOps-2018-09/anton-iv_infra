@@ -28,3 +28,9 @@ variable zone {
   description = "Zone"
   default     = "europe-west1-b"
 }
+
+
+variable instance_count {
+  description = "instance count"
+  default     = 1
+}
