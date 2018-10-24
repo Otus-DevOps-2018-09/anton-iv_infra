@@ -1,20 +1,24 @@
 provider "google" {
     version = "1.4.0"
-    project = "infra-219514"
-    region = "europe-west1"
+    #project = "infra-219514"
+    #region = "europe-west1"
+    project = "${var.project}"   
+    region  = "${var.region}" 
 }
 
 resource "google_compute_instance" "app" {
     name = "reddit-app"
     machine_type = "f1-micro"
-    zone = "europe-west1-b"
+    zone = "${var.zone}"
     metadata {    
-         ssh-keys = "gceuser:${file("~/.ssh/gceuser.pub")}"   
+        #ssh-keys = "gceuser:${file("~/.ssh/gceuser.pub")}"   
+        ssh-keys = "gceuser:${file(var.public_key_path)}" 
     } 
     # определение загрузочного диска
     boot_disk {
         initialize_params {
-            image = "reddit-base"
+            #image = "reddit-base"
+            image = "${var.disk_image}" 
         }
     }
     # определение сетевого интерфейса
@@ -25,6 +29,21 @@ resource "google_compute_instance" "app" {
         access_config {}
     }  
     tags = ["reddit-app"] 
+    
+    connection {     
+        type     = "ssh"
+        user     = "gceuser"
+        agent = false
+        private_key = "${file(var.private_key_path)}"   
+    }
+
+    provisioner "file" {
+        source = "files/puma.service"
+        destination = "/tmp/puma.service" 
+    }
+    provisioner "remote-exec" {   
+        script = "files/deploy.sh" 
+    }
 }
 
 resource "google_compute_firewall" "firewall_puma" {  
