@@ -8,6 +8,17 @@ provider "google" {
   region = "${var.region}"
 }
 
+
+
+resource "google_compute_project_metadata" "ssh_keys" {
+    metadata {
+      ssh-keys = <<EOF
+      gceuser:${var.public_key} gceuser
+      gceuser1:${var.public_key} gceuser1
+      gceuser2:${var.public_key} gceuser2
+      EOF
+    }
+}
 resource "google_compute_instance" "app" {
   name         = "reddit-app"
   machine_type = "f1-micro"

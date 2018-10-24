@@ -27,3 +27,15 @@ git update-index --chmod=+x *.sh
 
 reddit-base template created, reddit-full template based on reddit-base templ. created; created puma.service file for autodeployment of reddit app;
 
+Many SSH-keys solution:
+resource "google_compute_project_metadata" "ssh_keys" {
+    metadata {
+      ssh-keys = <<EOF
+      gceuser:${var.public_key} gceuser
+      gceuser1:${var.public_key} gceuser1
+      gceuser2:${var.public_key} gceuser2
+      EOF
+    }
+}
+Where public_key = "ssh-rsa HERE_PUBLIC_KEY"
+
