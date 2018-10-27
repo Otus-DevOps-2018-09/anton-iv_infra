@@ -6,31 +6,3 @@ variable region {
   description = "Region"
   default     = "europe-west1"
 }
-
-variable private_key_path {
-  description = "Path to the private key used for ssh access"
-}
-
-variable public_key {
-  description = "public key"
-}
-
-
-variable public_key_path {
-  description = "Path to the public key used for ssh access"
-}
-
-variable disk_image {
-  description = "Disk image"
-}
-
-variable zone {
-  description = "Zone"
-  default     = "europe-west1-b"
-}
-
-
-variable instance_count {
-  description = "instance count"
-  default     = 1
-}
