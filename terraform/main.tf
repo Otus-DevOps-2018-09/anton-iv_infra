@@ -17,7 +17,7 @@ resource "google_compute_project_metadata" "ssh_keys" {
     }
 }
 resource "google_compute_instance" "app" {
-  name         = "reddit-app"
+  name         = "reddit-app-${count.index+1}"
   machine_type = "f1-micro"
   zone         = "${var.zone}"
   count        = "${var.instance_count}"
