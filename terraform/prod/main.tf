@@ -26,6 +26,14 @@ module "vpc" {
 }
 
 /*
+data "terraform_remote_state" "reddit" {
+  backend = "gcs"
+  config {
+    bucket  = "storage-bucket-anton-iv-reddit"
+    prefix  = "prod"
+  }
+}*/
+/*
 resource "google_compute_project_metadata" "ssh_keys" {
     metadata {
       ssh-keys = <<EOF
