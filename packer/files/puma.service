@@ -1,0 +1,10 @@
+[Unit]
+Description=Puma App service
+After=network.target
+
+[Service]
+ExecStart=/usr/local/bin/puma -d --dir /home/gceuser/reddit/
+Type=forking
+
+[Install]
+WantedBy=default.target
