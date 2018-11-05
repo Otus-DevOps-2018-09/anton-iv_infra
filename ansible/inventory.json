@@ -1,0 +1,8 @@
+{
+    "db": {
+        "hosts": ["dbserver"]
+    },
+    "app": {
+        "hosts": ["appserver"]
+    }
+}

@@ -17,3 +17,10 @@ data "terraform_remote_state" "reddit" {
     prefix  = "stage"
   }
 }
+
+terraform {
+  backend "gcs" {
+    bucket  = "storage-bucket-anton-iv-reddit"
+    prefix  = "stage"
+  }
+}
