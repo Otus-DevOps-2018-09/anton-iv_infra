@@ -11,3 +11,17 @@ resource "google_compute_firewall" "firewall_ssh" {
 
   #source_ranges = ["0.0.0.0/0"]
 }
+
+resource "google_compute_firewall" "firewall_http" {
+  name    = "default-allow-http-hw10"
+  network = "default"
+
+  allow {
+    protocol = "tcp"
+    ports    = ["80"]
+  }
+
+  source_ranges = "${var.source_ranges}"
+
+  #source_ranges = ["0.0.0.0/0"]
+}
