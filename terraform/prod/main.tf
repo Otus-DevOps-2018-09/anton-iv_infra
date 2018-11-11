@@ -2,11 +2,38 @@ provider "google" {
   version = "1.4.0"
 
   project = "${var.project}"
-  region = "${var.region}"
+  region  = "${var.region}"
 }
 
+module "app" {
+  source          = "../modules/app"
+  public_key_path = "${var.public_key_path}"
+  zone            = "${var.zone}"
+  app_disk_image  = "${var.app_disk_image}"
+}
 
+module "db" {
+  source          = "../modules/db"
+  public_key_path = "${var.public_key_path}"
+  zone            = "${var.zone}"
+  db_disk_image   = "${var.db_disk_image}"
+}
 
+module "vpc" {
+  source = "../modules/vpc"
+
+  #source_ranges = ["80.250.215.124/32"]
+}
+
+/*
+data "terraform_remote_state" "reddit" {
+  backend = "gcs"
+  config {
+    bucket  = "storage-bucket-anton-iv-reddit"
+    prefix  = "prod"
+  }
+}*/
+/*
 resource "google_compute_project_metadata" "ssh_keys" {
     metadata {
       ssh-keys = <<EOF
@@ -16,6 +43,8 @@ resource "google_compute_project_metadata" "ssh_keys" {
       EOF
     }
 }
+*/
+/*
 resource "google_compute_instance" "app" {
   name         = "reddit-app-${count.index+1}"
   machine_type = "f1-micro"
@@ -33,35 +62,40 @@ resource "google_compute_instance" "app" {
       image = "${var.disk_image}"
     }
   }
-
-  # определение сетевого интерфейса
-  network_interface {
+*/
+# определение сетевого интерфейса
+/*network_interface {
     # сеть, к которой присоединить данный интерфейс
     network = "default"
 
     # использовать ephemeral IP для доступа из Интернет
     access_config {}
-  }
-
+  }*/
+/*
   tags = ["reddit-app"]
-
   connection {
     type        = "ssh"
     user        = "gceuser"
     agent       = false
     private_key = "${file(var.private_key_path)}"
   }
+  network_interface {
+    network = "default"
 
+    access_config = {
+      nat_ip = "${google_compute_address.app_ip.address}"
+    }
+  }
   provisioner "file" {
     source      = "files/puma.service"
     destination = "/tmp/puma.service"
   }
-
   provisioner "remote-exec" {
     script = "files/deploy.sh"
   }
 }
-
+*/
+/*
 resource "google_compute_firewall" "firewall_puma" {
   name    = "allow-puma-default" # Название сети, в которой действует правило   
   network = "default"            # Какой доступ разрешить   
@@ -77,3 +111,23 @@ resource "google_compute_firewall" "firewall_puma" {
   # Правило применимо для инстансов с перечисленными тэгами   
   target_tags = ["reddit-app"]
 }
+*/
+/*
+resource "google_compute_firewall" "firewall_ssh" {
+  name = "default-allow-ssh"
+  network = "default"
+  allow {
+    protocol = "tcp"
+    ports = ["22"]
+  }
+  source_ranges = ["0.0.0.0/0"]
+}
+*/
+/*
+resource "google_compute_address" "app_ip" {
+  name = "reddit-app-ip"
+
+  #address = "${var.static_ip}"
+}
+*/
+
