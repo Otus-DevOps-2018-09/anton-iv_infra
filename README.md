@@ -52,3 +52,9 @@ HW9
 
 HW10
 
+HW11
+config.vm.provider "virtualbox" do |vb|
+  vb.customize [ "modifyvm", :id, "--uartmode1", "disconnected" ]
+end
+export VAGRANT_WSL_ENABLE_WINDOWS_ACCESS="1"
+export PATH="$PATH:/mnt/c/Program Files/Oracle/VirtualBox"
