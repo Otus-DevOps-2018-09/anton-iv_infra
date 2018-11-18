@@ -1,4 +1,6 @@
 # anton-iv_infra
+
+
 anton-iv Infra repository
 
 Task 1 solution: need to create .ssh/config with folowing contents:
@@ -39,22 +41,3 @@ resource "google_compute_project_metadata" "ssh_keys" {
 }
 Where public_key = "ssh-rsa HERE_PUBLIC_KEY"
 
-HW8
-1) reddit repo recloned
-2) getinv.sh script for inventory.json added
-3) inventory.json
-
-HW9
-1) added db_internal_ip to db terraform module
-2) base HW done
-3) using https://github.com/express42/terraform-ansible-example/blob/master/ansible/terraform.py and getinv.sh wrapper for building inventory.json from remote terraform.tfstate
-4) corrected packer-ansible provisioners
-
-HW10
-
-HW11
-config.vm.provider "virtualbox" do |vb|
-  vb.customize [ "modifyvm", :id, "--uartmode1", "disconnected" ]
-end
-export VAGRANT_WSL_ENABLE_WINDOWS_ACCESS="1"
-export PATH="$PATH:/mnt/c/Program Files/Oracle/VirtualBox"
