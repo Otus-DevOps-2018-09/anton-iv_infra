@@ -1,4 +1,6 @@
 # anton-iv_infra
+
+
 anton-iv Infra repository
 
 Task 1 solution: need to create .ssh/config with folowing contents:
@@ -39,6 +41,7 @@ resource "google_compute_project_metadata" "ssh_keys" {
 }
 Where public_key = "ssh-rsa HERE_PUBLIC_KEY"
 
+<<<<<<< HEAD
 HW8
 1) reddit repo recloned
 2) getinv.sh script for inventory.json added
@@ -60,3 +63,5 @@ export VAGRANT_WSL_ENABLE_WINDOWS_ACCESS="1"
 #export PATH="$PATH:/mnt/c/Program Files/Oracle/VirtualBox"
 export PATH="$PATH:/mnt/c/Program Files/Oracle/VirtualBox:/home/anton/.local/bin"
 
+=======
+>>>>>>> 46d1707ccedb8fdc1f0844cdb6c40cff145ed637
