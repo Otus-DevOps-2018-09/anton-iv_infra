@@ -43,3 +43,9 @@ HW8
 1) reddit repo recloned
 2) getinv.sh script for inventory.json added
 3) inventory.json
+
+HW9
+1) added db_internal_ip to db terraform module
+2) base HW done
+3) using https://github.com/express42/terraform-ansible-example/blob/master/ansible/terraform.py and getinv.sh wrapper for building inventory.json from remote terraform.tfstate
+4) corrected packer-ansible provisioners

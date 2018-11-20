@@ -3,10 +3,10 @@ all:
     app:
       hosts:
         appserver:
-          ansible_host: 35.187.160.52
+          ansible_host: 35.205.187.203
     db:
       hosts:
         adbserver:
-          ansible_host: 35.240.17.177
+          ansible_host: 35.195.25.83
 
 
