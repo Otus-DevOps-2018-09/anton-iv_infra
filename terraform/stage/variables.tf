@@ -4,7 +4,9 @@ variable project {
 
 variable region {
   description = "Region"
-  default     = "europe-west1"
+  #default     = "europe-west1"
+  #default     = "asia-east1"
+  default     = "europe-north1"
 }
 
 variable private_key_path {
@@ -25,7 +27,9 @@ variable disk_image {
 
 variable zone {
   description = "Zone"
-  default     = "europe-west1-b"
+  #default     = "europe-west1-b"
+  #default     = "asia-east1-b"
+  default     = "europe-north1-b"
 }
 
 variable instance_count {

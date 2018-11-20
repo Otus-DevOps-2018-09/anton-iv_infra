@@ -8,5 +8,3 @@ all:
       hosts:
         adbserver:
           ansible_host: 35.195.25.83
-
-

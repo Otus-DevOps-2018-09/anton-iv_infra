@@ -49,3 +49,6 @@ HW9
 2) base HW done
 3) using https://github.com/express42/terraform-ansible-example/blob/master/ansible/terraform.py and getinv.sh wrapper for building inventory.json from remote terraform.tfstate
 4) corrected packer-ansible provisioners
+
+HW10
+
