@@ -39,3 +39,7 @@ resource "google_compute_project_metadata" "ssh_keys" {
 }
 Where public_key = "ssh-rsa HERE_PUBLIC_KEY"
 
+HW8
+1) reddit repo recloned
+2) getinv.sh script for inventory.json added
+3) inventory.json
