@@ -25,8 +25,8 @@
         {
             "type": "ansible",
             "extra_arguments": ["--tags","ruby"],
-            "ansible_env_vars": ["ANSIBLE_ROLES_PATH={{ pwd }}/ansible/roles"],
-            "playbook_file": "ansible/playbooks/packer_db.yml",
+            "ansible_env_vars": ["ANSIBLE_ROLES_PATH={{ pwd }}/../ansible/roles"],
+            "playbook_file": "../ansible/playbooks/packer_db.yml",
             "user": "gceuser"
         }
     ] 
