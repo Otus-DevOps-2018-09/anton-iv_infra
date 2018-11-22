@@ -1,4 +1,6 @@
 # anton-iv_infra
+
+
 anton-iv Infra repository
 
 Task 1 solution: need to create .ssh/config with folowing contents:
@@ -51,4 +53,12 @@ HW9
 4) corrected packer-ansible provisioners
 
 HW10
+
+HW11
+config.vm.provider "virtualbox" do |vb|
+  vb.customize [ "modifyvm", :id, "--uartmode1", "disconnected" ]
+end
+export VAGRANT_WSL_ENABLE_WINDOWS_ACCESS="1"
+#export PATH="$PATH:/mnt/c/Program Files/Oracle/VirtualBox"
+export PATH="$PATH:/mnt/c/Program Files/Oracle/VirtualBox:/home/anton/.local/bin"
 

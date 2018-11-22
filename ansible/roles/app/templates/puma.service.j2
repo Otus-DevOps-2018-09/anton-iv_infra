@@ -4,9 +4,9 @@ After=network.target
 
 [Service]
 Type=simple
-EnvironmentFile=/home/gceuser/db_config
-User=gceuser
-WorkingDirectory=/home/gceuser/reddit
+EnvironmentFile=/home/{{ deploy_user }}/db_config
+User={{ deploy_user }}
+WorkingDirectory=/home/{{ deploy_user }}/reddit
 ExecStart=/bin/bash -lc 'puma'
 Restart=always
 
